@@ -1,0 +1,22 @@
+@{
+    ViewBag.Title = "File Upload";
+}
+
+<h2>File Upload</h2>
+
+@using (Html.BeginForm("Upload", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div>
+        <label for="file">Select file:</label>
+        <input type="file" name="file" id="file" required />
+    </div>
+    
+    <div>
+        <label for="expiryDate">Expiry Date:</label>
+        <input type="date" name="expiryDate" id="expiryDate" required />
+    </div>
+    
+    <input type="submit" value="Upload" />
+}
